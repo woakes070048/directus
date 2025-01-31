@@ -1,20 +1,6 @@
-<template>
-	<v-notice v-if="selectedType === undefined">
-		{{ t('select_field_type') }}
-	</v-notice>
-	<v-select
-		v-else
-		:items="items"
-		:model-value="value"
-		:placeholder="t('interfaces.system-display.placeholder')"
-		show-deselect
-		@update:model-value="$emit('input', $event)"
-	/>
-</template>
-
 <script setup lang="ts">
 import { useExtensions } from '@/extensions';
-import { DisplayConfig } from '@directus/types';
+import type { DisplayConfig } from '@directus/extensions';
 import { computed, inject, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -42,7 +28,7 @@ watch(
 	() => values.value[props.typeField!],
 	() => {
 		emit('input', null);
-	}
+	},
 );
 
 const items = computed(() => {
@@ -57,3 +43,17 @@ const items = computed(() => {
 		});
 });
 </script>
+
+<template>
+	<v-notice v-if="selectedType === undefined">
+		{{ t('select_field_type') }}
+	</v-notice>
+	<v-select
+		v-else
+		:items="items"
+		:model-value="value"
+		:placeholder="t('interfaces.system-display.placeholder')"
+		show-deselect
+		@update:model-value="$emit('input', $event)"
+	/>
+</template>

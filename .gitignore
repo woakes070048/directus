@@ -6,12 +6,11 @@ node_modules/
 
 # Builds / Caches
 dist/
-storybook-static/
 coverage/
+.histoire/
 *.tsbuildinfo
 **/.vitepress/cache/
 **/.vitepress/.temp/
-.thumbsmith/
 .eslintcache
 
 # Dotenv configs
@@ -48,5 +47,6 @@ TODO
 /api/extensions/
 /tests/blackbox/uploads/
 /tests/blackbox/server-log-*
+/tests/blackbox/sequencer-data.json
 /packages/extensions-sdk/temp-extension-*/
 /docs/packages/
